@@ -32,9 +32,6 @@ pipeline {
     stage('Build and Push Docker Image') {
       environment {
         DOCKER_IMAGE = "abhishekf5/ultimate-cicd:${BUILD_NUMBER}"
-        def dockerfile ='Dockerfile'
-        def imageTag = "mahankali2k/abhishekf5/ultimate-cicd"
-        def customImage = docker.build(imageTag, "-f ${dockerfile} ./)
         // DOCKERFILE_LOCATION = "java-maven-sonar-argocd-helm-k8s/spring-boot-app/Dockerfile"
         REGISTRY_CREDENTIALS = credentials('docker-cred')
       }
